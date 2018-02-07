@@ -3,9 +3,14 @@ import Vapor
 extension Droplet {
     func setupRoutes() throws {
         get("json") { req in
-            var json = JSON()
-            try json.set(["name":"tanaka kenji", "age":23])
-            return json
+            return try JSON(node: [
+                "name" : "tanaka hajime",
+                "color" : "red",
+                "age" : 23
+                ])
+//            var json = JSON()
+//            try json.set(["name":"tanaka kenji", "age":23])
+//            return json
         }
 
         get("plaintext") { req in
