@@ -1,4 +1,5 @@
 import Vapor
+import App
 
 let drop = try Droplet()
 
@@ -11,7 +12,7 @@ drop.get("friends") { req in
 
 try resource("posts", PostController.self)
 
-drop.run()
+try drop.run()
 
 //import Vapor
 //
