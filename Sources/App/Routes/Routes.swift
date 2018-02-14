@@ -3,7 +3,6 @@ import Vapor
 extension Droplet {
     
     func setupRoutes() throws {
-        let drop = try Droplet()
         let endpoint = "https://api.line.me/v2/bot/message/reply"
         let accessToken = "s2sVXdEZWowJicp4Sscrr87NzuKUdLjx/r6vluMxwEPwf9FngPmGjhdGRSjVJb1umulRL9IJRD9DTOdhQENed8AkmIoOOQ8QKyYVnrx8cPfOLCkVSp7/Maq2w1X2kwyYkV9ve3OzhMFoNme7vNR6sAdB04t89/1O/w1cDnyilFU="
         
@@ -28,7 +27,7 @@ extension Droplet {
                 ["type": "text", "text": message]
                 ])
             
-            let response: Response = try drop.client.post(
+            let response: Response = try client.post(
                 endpoint,
                 query: ["name": "mybot"],
                 [
