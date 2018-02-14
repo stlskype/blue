@@ -1,12 +1,6 @@
 import Vapor
 
-let drop = Droplet()
-
-drop.get { req in
-    return try drop.view.make("welcome", [
-        "message": drop.localization[req.lang, "welcome", "title"]
-        ])
-}
+let drop = try Droplet()
 
 drop.get("friends") { req in
     return try JSON(node: ["friends": [["name": "Sarah", "age": 33],
@@ -15,7 +9,7 @@ drop.get("friends") { req in
         ])
 }
 
-drop.resource("posts", PostController())
+try resource("posts", PostController.self)
 
 drop.run()
 
