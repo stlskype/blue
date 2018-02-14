@@ -28,7 +28,7 @@ extension Droplet {
                 ["type": "text", "text": message]
                 ])
             
-            let response: Response = try drop.client.post(
+            let response: Response = try client.post(
                 endpoint,
                 query: ["name": "mybot"],
                 [
