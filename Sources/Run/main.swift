@@ -1,16 +1,10 @@
 import Vapor
-import App
 
 let drop = try Droplet()
 
-drop.get("friends") { req in
-    return try JSON(node: ["friends": [["name": "Sarah", "age": 33],
-                                       ["name": "Steve", "age": 31],
-                                       ["name": "Drew", "age": 35]]
-        ])
+drop.get("hello") { req in
+    return "Hello, world."
 }
-
-try resource("posts", PostController.self)
 
 try drop.run()
 
